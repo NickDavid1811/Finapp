@@ -1,27 +1,45 @@
 import Image from "next/image";
 import Link from "next/link";
 
+
 const Home = () => {
   return (
+    <>
     <div className="w-full">
       <div className="flex h-screen relative">
         <header className="w-full h-16 flex justify-between px-44 absolute">
           <nav className="flex">
             <div className="flex gap-10 items-center">
-              <a href="" className="">
+              <Link href="/" className="">
                 <Image
                   src="finapp-logo-header.svg"
                   alt="Finapp logo"
                   width={150}
                   height={60}
                 />
-              </a>
-              <a href="#acerca_de" className="hover:underline">
+              </Link>
+              <Link href="#acerca_de" id="link" onClick={
+                (e) => {
+                  e.preventDefault();
+                  const faqsElement = document.getElementById("acerca_de");
+                    if (faqsElement) {
+                      faqsElement.scrollIntoView({ behavior: "smooth" });
+                  }
+                }
+              }>
                 Acerca de
-              </a>
-              <a href="#desarolladores" className="hover:underline">
+              </Link>
+              <Link href="#desarolladores" id="link" onClick={
+                (e) => {
+                  e.preventDefault();
+                    const faqsElement = document.getElementById("desarolladores");
+                      if (faqsElement) {
+                        faqsElement.scrollIntoView({ behavior: "smooth" });
+                      }
+                }
+                }>
                 Desarolladores
-              </a>
+              </Link>
             </div>
           </nav>
           <nav className="flex">
@@ -174,6 +192,7 @@ const Home = () => {
         </div>
       </footer>
     </div>
+    </>
   );
 };
 
